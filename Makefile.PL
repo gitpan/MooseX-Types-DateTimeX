@@ -11,13 +11,12 @@ requires 'namespace::clean'   => '0.08';
 
 requires 'MooseX::Types::DateTime' => '0.04';
 
-requires 'Time::Duration::Parse' => '0.06';
-
-requires 'DateTimeX::Easy'       => '0.082';
-# All used by DateTime::Easy
-requires 'DateTime::Format::DateParse' => '0.04';
-requires 'DateTime::Format::Natural'   => '0.71';
-requires 'DateTime::Format::Flexible'  => '0.05';
+requires 'DateTimeX::Easy' => '0.085';
+# All used by DateTime::Easy (no purpose to explicitly specify what we don't use directly)
+## requires 'Time::Duration::Parse' => '0.06';
+## requires 'DateTime::Format::DateParse' => '0.04';
+## requires 'DateTime::Format::Natural'   => '0.71';
+## requires 'DateTime::Format::Flexible'  => '0.05';
 
 test_requires 'Test::use::ok'    => '0.02';
 test_requires 'Test::Exception'  => '0.27';

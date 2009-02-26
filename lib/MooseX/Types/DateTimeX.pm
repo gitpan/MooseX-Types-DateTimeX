@@ -12,7 +12,7 @@ use MooseX::Types::Moose qw/Num HashRef Str/;
 
 use namespace::clean;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use MooseX::Types -declare => [qw( DateTime Duration)];
 
@@ -62,9 +62,9 @@ Please see the test case for more example usage.
 
 =head1 DESCRIPTION
 
-This module builds on L<MooseX::Types::DateTime> to add additional custom
-types and coercions.  Since it builds on an existing type, all coercions and
-constraints are inherited.
+This module builds on L<MooseX::Types::DateTime> to add additional custom types and coercions.  Since it builds on an existing type, all coercions and constraints are inherited.
+
+The package name is left as is for legacy reasons: this module is really a Type with coercions for L<DateTimeX::Easy>. DateTimeX is just a namespace for non-core or less-official L<DateTime> modules.
 
 =head1 SUBTYPES
 
@@ -74,16 +74,25 @@ This module defines the following additional subtypes.
 
 Subtype of 'DateTime'.  Adds an additional coercion from strings.
 
-Uses L<DateTimeX::Easy> to try and convert strings, like "yesterday" into a 
-valid L<DateTime> object.  Please note that due to ambiguity with how different
-systems might localize their timezone, string parsing may not always return 
-the most expected value.  IN general we try to localize to UTC whenever
-possible.  Feedback welcomed!
+Uses L<DateTimeX::Easy> to try and convert strings, like "yesterday" into a valid L<DateTime> object.  Please note that due to ambiguity with how different systems might localize their timezone, string parsing may not always return the most expected value.  IN general we try to localize to UTC whenever possible.  Feedback welcomed!
 
 =head2 Duration
 
-Subtype of 'DateTime::Duration' that coerces from a string.  We use the module
-L<Time::Duration::Parse> to attempt this.
+Subtype of 'DateTime::Duration' that coerces from a string.  We use the module L<Time::Duration::Parse> to attempt this.
+
+=head1 CAVEATS
+
+Firstly, this module uses L<DateTimeX::Easy> which is way to more DWIM than any sane person would desire. L<DateTimeX::Easy> works by falling back until something makes sense, this is variable. Furthermore, all the modules that L<DateTimeX::Easy> *can* use aren't required for "proper" function of L<DateTimeX::Easy>. What does this mean? Simple, your mileage may vary in your coercions because L<DateTimeX::Easy> is installation specific.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<MooseX::Types::DateTime> Replacement for this module -- coercions with less voodoo
+
+=item * L<DateTimeX::Easy> Backend of this module
+
+=back
 
 =head1 AUTHOR
 

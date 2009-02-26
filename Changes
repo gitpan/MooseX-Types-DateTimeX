@@ -1,3 +1,8 @@
+0.05
+        - Require a newer version of DateTimex::Easy
+          This means we don't have to explicitly state each requirement of DTX:E
+        - Fixed pod 
+
 0.04
         - Updated to Module::Install ( Evan Carroll )
 				- removed from MooseX::Types::DateTime ( Evan Carroll )
