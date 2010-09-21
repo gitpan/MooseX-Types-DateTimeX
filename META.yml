@@ -1,5 +1,5 @@
 ---
-abstract: 'Extensions to L<MooseX::Types::DateTime>'
+abstract: 'Extensions to L<MooseX::Types::DateTime::ButMaintained>'
 author:
   - 'John Napiorkowski <jjn1056 at yahoo.com>'
   - 'Evan Carroll <me@evancarroll.com>'
@@ -25,11 +25,11 @@ requires:
   DateTimeX::Easy: 0.085
   Moose: 0.41
   MooseX::Types: 0.04
-  MooseX::Types::DateTime: 0.05
+  MooseX::Types::DateTime::ButMaintained: 0.04
   Time::Duration::Parse: 0.06
   namespace::clean: 0.08
   perl: 5.8.0
 resources:
   license: http://dev.perl.org/licenses/
-  repository: git@github.com:perigrin/mx-t-datetimex.git
-version: 0.07
+  repository: git@github.com:EvanCarroll/mx-t-datetimex.git
+version: 0.10
